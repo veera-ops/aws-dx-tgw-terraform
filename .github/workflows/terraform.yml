@@ -21,7 +21,7 @@ jobs:
 
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::123456789012:role/TerraformExecutionRole
+          role-to-assume: arn:aws:iam::570864946772:role/TerraformExecutionRole
           aws-region: ap-south-1
 
       - name: Terraform Init
