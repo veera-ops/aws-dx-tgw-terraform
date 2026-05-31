@@ -1,9 +1,15 @@
 terraform {
+
   backend "s3" {
-    bucket         = "terraform-state-prod"
-    key            = "dx-tgw/terraform.tfstate"
-    region         = "ap-south-1"
+
+    bucket = "terraform-state-prod"
+
+    key = "networking/dx-tgw.tfstate"
+
+    region = "ap-south-1"
+
+    encrypt = true
+
     dynamodb_table = "terraform-locks"
-    encrypt        = true
   }
 }
