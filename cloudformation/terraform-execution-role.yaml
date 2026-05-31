@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: Terraform Execution Role
+
+Resources:
+
+  TerraformExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: TerraformExecutionRole
+
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS:
+                - arn:aws:iam::<AWS_ACCOUNT_ID>:root
+            Action:
+              - sts:AssumeRole
+
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/ReadOnlyAccess
+
+      Policies:
+        - PolicyName: TerraformDXTGWPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+
+              - Effect: Allow
+                Action:
+                  - ec2:*
+                  - directconnect:*
+                  - iam:PassRole
+                  - iam:GetRole
+                  - iam:ListRoles
+                  - sts:GetCallerIdentity
+                Resource: "*"
+
+Outputs:
+
+  RoleArn:
+    Value: !GetAtt TerraformExecutionRole.Arn
