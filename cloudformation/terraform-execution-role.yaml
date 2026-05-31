@@ -15,7 +15,7 @@ Resources:
           - Effect: Allow
             Principal:
               AWS:
-                - arn:aws:iam::<AWS_ACCOUNT_ID>:root
+                - arn:aws:iam::570864946772:root
             Action:
               - sts:AssumeRole
 
