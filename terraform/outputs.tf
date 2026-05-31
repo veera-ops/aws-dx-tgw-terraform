@@ -5,7 +5,3 @@ output "tgw_id" {
 output "dxgw_id" {
   value = aws_dx_gateway.dxgw.id
 }
-
-output "association_id" {
-  value = aws_dx_gateway_association.association.id
-}
