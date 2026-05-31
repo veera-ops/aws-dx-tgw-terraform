@@ -1,8 +1,7 @@
-aws_region = "ap-south-1"
+output "tgw_id" {
+  value = aws_ec2_transit_gateway.tgw.id
+}
 
-terraform_role_arn = "arn:aws:iam::570864946772:role/TerraformExecutionRole"
-
-tgw_name  = "customer-prod-tgw"
-dxgw_name = "customer-prod-dxgw"
-
-amazon_side_asn = 64512
+output "dxgw_id" {
+  value = aws_dx_gateway.dxgw.id
+}
